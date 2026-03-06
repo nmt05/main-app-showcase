@@ -16,7 +16,6 @@ This organization is used to manage repositories for:
 Each repository in this organization corresponds to:
 
 - A team project
-- A lab exercise
 - A course assignment
 
 Students collaborate using **Git**, **GitHub Issues**, and **Pull Requests**.
