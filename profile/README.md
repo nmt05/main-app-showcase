@@ -42,7 +42,7 @@ Projects in this organization may use:
 - REST APIs
 
 ---
-## 📌 Purpose
+## 📌 Purpose & Goals
 
 The goal of this organization is to:
 
@@ -62,9 +62,6 @@ The goal of this organization is to:
 **Slogan:**  
 - Tiếng Việt: "Kích thích hai bán cầu, hoàn hảo đôi tay"  
 - Tiếng Anh: "Train your brain, both sides at once"
-
-**Purpose & Goals:**  
-GameTwoShape là một ứng dụng game di động giải trí nhanh (*hyper-casual*) hỗ trợ chơi offline. Mục tiêu của ứng dụng là giúp người chơi rèn luyện sự tập trung và phản xạ của cả hai bán cầu não thông qua việc **vẽ đồng thời hai hình khối khác nhau bằng hai tay**.  
 
 Ứng dụng cung cấp:  
 - Công cụ "tập thể dục não bộ" dựa trên các nghiên cứu khoa học.  
@@ -93,14 +90,16 @@ GameTwoShape là một ứng dụng game di động giải trí nhanh (*hyper-ca
    - Nhược điểm: Thường chỉ dành cho trẻ em hoặc vẽ tuần tự từng hình một.
 
 5. **Osu! / Các game nhịp điệu**  
-   - Loại: Luyện tay mắt cực tốt.  
+   - Loại: Luyện tay mắt cực tốt.
    - Nhược điểm: Đòi hỏi phải có âm thanh/nhạc, không dựa trên nghiên cứu luyện não tĩnh.
 
 ### Opportunities (Cơ hội)
 - Hiện tại rất thiếu game tập trung hoàn toàn vào **vẽ bimanual** (hai tay hai hình).  
-- **GameTwoShape** lấp đầy khoảng trống này bằng một **cơ chế cốt lõi duy nhất**:  
-  - Dễ hiểu, dễ gây nghiện (người chơi dễ bị ức chế khi vẽ sai và muốn chơi lại ngay).  
+- **GameTwoShape** lấp đầy khoảng trống này bằng một **cơ chế cốt lõi duy nhất**:
+  - Cơ chế rèn luyện trí não thuần túy và hiệu quả. 
+  - Dễ hiểu, dễ gây nghiện (người chơi dễ bị ức chế khi vẽ sai và muốn chơi lại ngay).
   - Có thể lan truyền tốt trên mạng xã hội (ví dụ: thử thách quay video chơi game).
+    
 ## 3. Business Model Canvas
 .....
 Ứng dụng luyện phối hợp hai tay bằng cách vẽ hai hình khác nhau cùng lúc (ví dụ: hình tròn và hình vuông).
