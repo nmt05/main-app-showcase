@@ -96,7 +96,6 @@ Projects in this organization may use:
   - Dễ hiểu, dễ gây nghiện (người chơi dễ bị ức chế khi vẽ sai và muốn chơi lại ngay).  
   - Có thể lan truyền tốt trên mạng xã hội (ví dụ: thử thách quay video chơi game).
 ## 3. Business Model Canvas
-.....
 Ứng dụng luyện phối hợp hai tay bằng cách vẽ hai hình khác nhau cùng lúc (ví dụ: hình tròn và hình vuông).
 
 | **Problem** | **Solution** | **Unique Value Proposition** |
