@@ -1,287 +1,911 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Game Two Shapes - Mobile Challenge</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <style>
-            /* Thu hẹp lề để nội dung rộng hơn theo ý bạn */
-            .divided > section > .content { padding: 3rem 3rem 1.5rem 3rem !important; }
-            .wrapper.style1 > .inner { padding: 3rem 2rem !important; max-width: 90%; }
-        </style>
-    </head>
-    <body class="is-preload">
+<!doctype html>
+<html lang="en">
 
-        <div id="wrapper" class="divided">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GameTwoShapesS | Mobile App Showcase</title>
+    <meta name="description" content="A focused showcase page for the GameTwoShapes mobile game project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-a: #f6efe5;
+            --bg-b: #fffaf2;
+            --bg-c: #e7f3f4;
+            --paper: #fffdf9;
+            --ink: #18120c;
+            --muted: #5c5045;
+            --line: #d9cbb7;
+            --accent: #ea5a1f;
+            --accent-2: #0f8ba0;
+            --shadow: 0 18px 40px rgba(27, 20, 12, 0.12);
+            --radius-lg: 26px;
+            --radius-md: 18px;
+        }
 
-                <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-                        <div class="content">
-                            <h1>Game Two Shapes</h1>
-                            <p class="major">Thử thách sự tập trung và khả năng phản xạ của bạn với trò chơi điều khiển song song đầy kịch tính.</p>
-                            <ul class="actions stacked">
-                                <li><a href="#first" class="button big wide smooth-scroll-middle">Khám Phá Ngay</a></li>
-                            </ul>
-                        </div>
-                        <div class="image">
-                           <img src="images/menu.jpg" alt="Game Two Shapes Banner"  />
-                        </div>
-                    </section>
+        * {
+            box-sizing: border-box;
+        }
 
-                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-                        <div class="content">
-                            <h2>Lối chơi gây nghiện</h2>
-                            <p>Bạn sẽ phải điều khiển hai khối hình cùng một lúc để vượt qua các chướng ngại vật đang lao tới. Chỉ một sai lầm nhỏ của một trong hai khối cũng sẽ khiến trò chơi kết thúc. Đây là bài kiểm tra thực sự cho khả năng xử lý đa nhiệm của bộ não.</p>
-                            <ul class="actions stacked">
-                                <li><a href="#" class="button">Xem chi tiết</a></li>
-                            </ul>
-                        </div>
-                        <div class="image">
-                            <img src="images/start.jpg" alt="Gameplay" />
-                        </div>
-                    </section>
+        html {
+            scroll-behavior: smooth;
+        }
 
-                <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-                        <div class="content">
-                            <h2>Độ khó tăng dần</h2>
-                            <p>Càng đi xa, tốc độ của các chướng ngại vật sẽ càng tăng nhanh và quỹ đạo di chuyển sẽ trở nên lắt léo hơn. Bạn có đủ bình tĩnh để giữ cho cả hai khối hình an toàn trong những giây phút nghẹt thở nhất?</p>
-                            <ul class="actions stacked">
-                                <li><a href="#" class="button">Thử thách</a></li>
-                            </ul>
-                        </div>
-                        <div class="image">
-                            <img src="images/inplay.jpg" alt="Difficulty Levels" />
-                        </div>
-                    </section>
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 10% 20%, rgba(15, 139, 160, 0.12), transparent 32%),
+                radial-gradient(circle at 90% 0%, rgba(234, 90, 31, 0.16), transparent 34%),
+                linear-gradient(160deg, var(--bg-a), var(--bg-b) 52%, var(--bg-c));
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-                        <div class="content">
-                            <h2>Đồ họa tối giản</h2>
-                            <p>Sử dụng phong cách thiết kế phẳng hiện đại với các gam màu tương phản, Game Two Shapes tập trung tối đa vào trải nghiệm người dùng, giúp bạn không bị xao nhãng và hoàn toàn đắm chìm vào nhịp độ của trò chơi.</p>
-                            <ul class="actions stacked">
-                                <li><a href="#" class="button">Giao diện</a></li>
-                            </ul>
-                        </div>
-                        <div class="image">
-                            <img src="images/gameover.jpg" alt="Design Style" />
-                        </div>
-                    </section>
+        .ambient {
+            position: fixed;
+            z-index: -1;
+            border-radius: 999px;
+            filter: blur(45px);
+            opacity: 0.55;
+            pointer-events: none;
+        }
 
-                <section class="wrapper style1 align-center">
-                        <div class="inner">
-                            <h2>Khoảnh khắc trong Game</h2>
-                            <p>Hành trình chinh phục những kỷ lục mới qua các màn chơi đầy màu sắc và thử thách.</p>
-                        </div>
+        .ambient-one {
+            width: 20rem;
+            height: 20rem;
+            top: -6rem;
+            right: -5rem;
+            background: rgba(15, 139, 160, 0.35);
+            animation: drift 18s ease-in-out infinite;
+        }
 
-                        <div class="gallery style2 medium lightbox onscroll-fade-in">
-                                <article>
-                                    <a href="images/gallery/fulls/01.jpg" class="image">
-                                        <img src="images/gallery/thumbs/01.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Bắt đầu</h3>
-                                        <p>Làm quen với nhịp độ cơ bản của trò chơi.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/02.jpg" class="image">
-                                        <img src="images/gallery/thumbs/02.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Tăng tốc</h3>
-                                        <p>Khi các chướng ngại vật xuất hiện dày đặc hơn.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/03.jpg" class="image">
-                                        <img src="images/gallery/thumbs/03.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Phản xạ</h3>
-                                        <p>Yêu cầu sự chính xác tuyệt đối trong từng cú chạm.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/04.jpg" class="image">
-                                        <img src="images/gallery/thumbs/04.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Kỷ lục</h3>
-                                        <p>Vượt qua giới hạn của bản thân.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/05.jpg" class="image">
-                                        <img src="images/gallery/thumbs/05.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Màu sắc</h3>
-                                        <p>Sự thay đổi không gian theo điểm số.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/06.jpg" class="image">
-                                        <img src="images/gallery/thumbs/06.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Tập trung</h3>
-                                        <p>Đừng để âm nhạc đánh lừa sự chú ý của bạn.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/08.jpg" class="image">
-                                        <img src="images/gallery/thumbs/08.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Khéo léo</h3>
-                                        <p>Luồn lách qua những khe hở hẹp nhất.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/09.jpg" class="image">
-                                        <img src="images/gallery/thumbs/09.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Kiên trì</h3>
-                                        <p>Thất bại là mẹ của những kỷ lục mới.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <article>
-                                    <a href="images/gallery/fulls/11.jpg" class="image">
-                                        <img src="images/gallery/thumbs/11.jpg" alt="" />
-                                    </a>
-                                    <div class="caption">
-                                        <h3>Đơn giản</h3>
-                                        <p>Dễ chơi nhưng cực khó để làm chủ.</p>
-                                        <ul class="actions fixed">
-                                            <li><span class="button small">Chi tiết</span></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                            </div>
+        .ambient-two {
+            width: 24rem;
+            height: 24rem;
+            bottom: -9rem;
+            left: -6rem;
+            background: rgba(234, 90, 31, 0.28);
+            animation: drift 22s ease-in-out infinite reverse;
+        }
 
-                    </section>
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem clamp(1rem, 3vw, 2.2rem);
+            background: rgba(255, 249, 240, 0.84);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(217, 203, 183, 0.7);
+        }
 
-                <section class="wrapper style1 align-center">
-                        <div class="inner">
-                            <h2>Công nghệ sử dụng</h2>
-                            <p>Dự án được xây dựng trên nền tảng công nghệ mạnh mẽ để đảm bảo hiệu năng tối ưu.</p>
-                            <div class="items style1 medium onscroll-fade-in">
-                                <section>
-                                    <span class="icon brands style2 major fa-react"></span>
-                                    <h3>React Native</h3>
-                                    <p>Framework chính giúp phát triển ứng dụng di động đa nền tảng mượt mà.</p>
-                                </section>
-                                <section>
-                                    <span class="icon brands style2 major fa-java"></span>
-                                    <h3>Java</h3>
-                                    <p>Ngôn ngữ lập trình cốt lõi để xử lý các logic hệ thống và module native.</p>
-                                </section>
-                                <section>
-                                    <span class="icon solid style2 major fa-tools"></span>
-                                    <h3>Gradle</h3>
-                                    <p>Hệ thống quản lý build mạnh mẽ, giúp tối ưu hóa quá trình đóng gói ứng dụng.</p>
-                                </section>
-                                <section>
-                                    <span class="icon solid style2 major fa-save"></span>
-                                    <h3>Lưu điểm cao</h3>
-                                    <p>Tự động lưu lại những kỷ lục tốt nhất của bạn sau mỗi màn chơi.</p>
-                                </section>
-                                <section>
-                                    <span class="icon solid style2 major fa-desktop"></span>
-                                    <h3>Đa nền tảng</h3>
-                                    <p>Hỗ trợ tốt trên nhiều kích thước màn hình điện thoại khác nhau.</p>
-                                </section>
-                                <section>
-                                    <span class="icon solid style2 major fa-bolt"></span>
-                                    <h3>Mượt mà</h3>
-                                    <p>Tối ưu hóa mã nguồn để đảm bảo tốc độ khung hình cao.</p>
-                                </section>
-                            </div>
-                        </div>
-                    </section>
+        .brand {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+        }
 
-                <section class="wrapper style1 align-center">
-                        <div class="inner medium">
-                            <h2>Gửi phản hồi</h2>
-                            <form method="post" action="#">
-                                <div class="fields">
-                                    <div class="field half">
-                                        <label for="name">Họ và tên</label>
-                                        <input type="text" name="name" id="name" value="" />
-                                    </div>
-                                    <div class="field half">
-                                        <label for="email">Email liên hệ</label>
-                                        <input type="email" name="email" id="email" value="" />
-                                    </div>
-                                    <div class="field">
-                                        <label for="message">Lời nhắn / Góp ý</label>
-                                        <textarea name="message" id="message" rows="6"></textarea>
-                                    </div>
-                                </div>
-                                <ul class="actions special">
-                                    <li><input type="submit" name="submit" id="submit" value="Gửi thông tin" /></li>
-                                </ul>
-                            </form>
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
 
-                        </div>
-                    </section>
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
 
-                <footer class="wrapper style1 align-center">
-                        <div class="inner">
-                            <h3>Thành viên nhóm Cock Roaches</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 2rem;">
-                                <strong>Ngô Minh Trí</strong> - 2313598 | 
-                                <strong>Trần Quốc Cường</strong> - 2310405 | 
-                                <strong>Võ Trường Chinh</strong> - 2320002<br />
-                                <strong>Nguyễn Ngọc Ngữ</strong> - 2312401 | 
-                                <strong>Bùi Trọng Hiển</strong> - 2310993
-                            </p>
-                            <ul class="icons">
-                                <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-                                <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-                                <li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                                <li><a href="mailto:tri.ngominh@hcmut.edu.vn" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-                            </ul>
-                            <p>&copy; GameTwoShapes Project. Phát triển bởi Nhóm L02 - Cock Roaches. Click Here: <a href="https://github.com/L02-CockRoaches/main-app">Link to our main repository</a>.</p>
-                        </div>
-                    </footer>
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--ink);
+            border-color: var(--accent);
+            outline: none;
+        }
 
+        main {
+            width: min(1120px, 100% - 2rem);
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: clamp(1.5rem, 4vw, 3.2rem);
+            align-items: center;
+            padding: clamp(2.2rem, 4vw, 4rem) 0 clamp(2rem, 5vw, 4rem);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(15, 139, 160, 0.25);
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--accent-2);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Barlow Condensed", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.035em;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 8vw, 4.6rem);
+            line-height: 0.95;
+            margin-top: 0.85rem;
+        }
+
+        .hero p {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            max-width: 56ch;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 8.8rem;
+            padding: 0.75rem 1.1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 10px 24px rgba(234, 90, 31, 0.28);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--ink);
+            border-color: var(--line);
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .hero-stats {
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(120px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .stat {
+            padding: 0.95rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(217, 203, 183, 0.8);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: var(--ink);
+            font-family: "Barlow Condensed", sans-serif;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 0.3rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            padding: 1.4rem 0.4rem;
+        }
+
+        .phone {
+            width: min(320px, 92%);
+            margin: 0 auto;
+            border-radius: 34px;
+            padding: 14px;
+            background: #121212;
+            box-shadow: 0 24px 42px rgba(15, 12, 8, 0.33);
+            transform: rotate(-5deg);
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+        }
+
+        .phone::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 94px;
+            height: 16px;
+            background: #202020;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .phone img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 19;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .float-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(217, 203, 183, 0.85);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            padding: 0.7rem 0.8rem;
+            max-width: 180px;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .float-card strong {
+            display: block;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
+        }
+
+        .card-a {
+            top: 4%;
+            right: -2%;
+        }
+
+        .card-b {
+            bottom: 6%;
+            left: -1%;
+        }
+
+        .section {
+            padding: clamp(2rem, 5vw, 3.5rem) 0;
+        }
+
+        .section.alt {
+            margin: 0 -1rem;
+            padding-inline: 1rem;
+            background: rgba(255, 255, 255, 0.46);
+            border-top: 1px solid rgba(217, 203, 183, 0.65);
+            border-bottom: 1px solid rgba(217, 203, 183, 0.65);
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: flex-end;
+            margin-bottom: 1.15rem;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 56ch;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 0.96;
+        }
+
+        .loop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .loop-card {
+            padding: 1.05rem;
+            background: var(--paper);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
+        }
+
+        .step-id {
+            display: inline-flex;
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 999px;
+            align-items: center;
+            justify-content: center;
+            font-family: "Barlow Condensed", sans-serif;
+            color: #ffffff;
+            background: var(--accent-2);
+            margin-bottom: 0.65rem;
+        }
+
+        .loop-card h3 {
+            font-size: 1.52rem;
+        }
+
+        .loop-card p {
+            margin: 0.5rem 0 0;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 0.94rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1rem;
+            padding: 0.95rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: var(--paper);
+            box-shadow: var(--shadow);
+        }
+
+        .feature img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .feature h3 {
+            font-size: 1.45rem;
+        }
+
+        .feature p {
+            margin: 0.35rem 0 0;
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.62;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 0.7rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: #ffffff;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 165px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .stack-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stack-box {
+            padding: 1.1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: var(--paper);
+            box-shadow: var(--shadow);
+        }
+
+        .stack-box h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .stack-box p {
+            margin: 0 0 0.7rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .team-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .team-list li {
+            padding: 0.5rem 0.65rem;
+            border-radius: 10px;
+            border: 1px dashed rgba(15, 139, 160, 0.28);
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .team-list strong {
+            color: var(--ink);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .chip {
+            padding: 0.4rem 0.62rem;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(120deg, var(--accent-2), #2b6d7a);
+        }
+
+        .cta {
+            text-align: center;
+        }
+
+        .cta-panel {
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 4vw, 2.4rem);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 249, 238, 0.92));
+            box-shadow: var(--shadow);
+        }
+
+        .cta-panel h2 {
+            margin-bottom: 0.65rem;
+        }
+
+        .cta-panel p {
+            color: var(--muted);
+            max-width: 62ch;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .cta-panel .hero-actions {
+            justify-content: center;
+            margin-top: 1.25rem;
+        }
+
+        .footer {
+            width: min(1120px, 100% - 2rem);
+            margin: 0 auto;
+            padding: 1.2rem 0 2.2rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.12s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.24s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: rotate(-5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-3deg) translateY(-8px);
+            }
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-16px, 22px) scale(1.08);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .float-card {
+                position: static;
+                max-width: none;
+                margin-top: 0.7rem;
+            }
+
+            .card-a,
+            .card-b {
+                right: auto;
+                left: auto;
+                top: auto;
+                bottom: auto;
+            }
+
+            .loop-grid,
+            .feature-grid,
+            .stack-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                grid-template-columns: 1fr;
+            }
+
+            .feature img {
+                height: 200px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .gallery-item.wide {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .topbar {
+                gap: 0.8rem;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+        <a class="brand" href="#top">GameTwoShapes</a>
+        <nav class="nav-links">
+            <a href="#gameplay">Gameplay</a>
+            <a href="#features">Features</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#stack">Stack</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="reveal">
+                <span class="eyebrow">Mobile App Showcase</span>
+                <h1>Train both hands. Keep both shapes alive.</h1>
+                <p>
+                    GameTwoShapes is a divided-attention challenge where players draw and react on two lanes at the same
+                    time.
+                    The goal is simple: understand the loop fast, see real visuals, and jump into the project quickly.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#gameplay">View Gameplay</a>
+                    <a class="btn btn-secondary" href="https://github.com/L02-CockRoaches/main-app">Main Repository</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong data-count="2">2</strong>
+                        <span>simultaneous input lanes</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-count="3">3</strong>
+                        <span>core loop actions</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-count="60">60</strong>
+                        <span>seconds to explain gameplay</span>
+                    </div>
+                </div>
             </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+            <div class="hero-visual reveal delay-1">
+                <div class="phone">
+                    <img src="images/menu.jpg" alt="GameTwoShapes start menu displayed inside a phone frame.">
+                </div>
+                <div class="float-card card-a">
+                    <strong>Fast Learning Curve</strong>
+                    One minute is enough to understand controls.
+                </div>
+                <div class="float-card card-b">
+                    <strong>Hard To Master</strong>
+                    Speed and precision increase every round.
+                </div>
+            </div>
+        </section>
 
-    </body>
+        <section class="section" id="gameplay">
+            <div class="section-head reveal">
+                <h2>How The Loop Works</h2>
+                <p>A clear three-step rhythm keeps the game easy to start and difficult to dominate.</p>
+            </div>
+            <div class="loop-grid">
+                <article class="loop-card reveal">
+                    <span class="step-id">01</span>
+                    <h3>Read Targets</h3>
+                    <p>Two shape targets appear on separate sides. You have limited time to process both at once.</p>
+                </article>
+                <article class="loop-card reveal delay-1">
+                    <span class="step-id">02</span>
+                    <h3>Draw Both</h3>
+                    <p>Use multi-touch to draw the correct shape on each side. Missing either side breaks the streak.
+                    </p>
+                </article>
+                <article class="loop-card reveal delay-2">
+                    <span class="step-id">03</span>
+                    <h3>Survive Pressure</h3>
+                    <p>Each correct turn boosts score and shortens reaction windows, forcing focus and control.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section alt" id="features">
+            <div class="section-head reveal">
+                <h2>Core Value Highlights</h2>
+                <p>Each block below maps directly to the mobile game experience and what makes the project unique.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature reveal">
+                    <img src="images/start.jpg" alt="Beginning of a gameplay round with target shapes.">
+                    <div>
+                        <h3>Dual-Hand Control</h3>
+                        <p>The mechanic trains coordination by forcing independent actions from left and right hands.
+                        </p>
+                    </div>
+                </article>
+                <article class="feature reveal delay-1">
+                    <img src="images/inplay.jpg" alt="In-game state with increasing pace.">
+                    <div>
+                        <h3>Progressive Difficulty</h3>
+                        <p>Round speed ramps up quickly, turning simple controls into a serious concentration test.</p>
+                    </div>
+                </article>
+                <article class="feature reveal">
+                    <img src="images/gameover.jpg" alt="Game over state after missing the targets.">
+                    <div>
+                        <h3>Replay Motivation</h3>
+                        <p>Instant restart flow and score chasing encourage repeat attempts and measurable improvement.
+                        </p>
+                    </div>
+                </article>
+                <article class="feature reveal delay-1">
+                    <img src="images/menu.jpg" alt="Main menu with clean and focused interface.">
+                    <div>
+                        <h3>Minimal Interface</h3>
+                        <p>Low-distraction visual design keeps attention on reaction speed, gesture quality, and timing.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <div class="section-head reveal">
+                <h2>Visual Proof</h2>
+                <p>Real project images, arranged as a clean gallery section suitable for class demo or portfolio review.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <figure class="gallery-item wide reveal">
+                    <img src="images/gallery/fulls/01.jpg" alt="Gameplay visual from gallery image 01.">
+                </figure>
+                <figure class="gallery-item wide reveal delay-1">
+                    <img src="images/gallery/fulls/03.jpg" alt="Gameplay visual from gallery image 03.">
+                </figure>
+                <figure class="gallery-item wide reveal">
+                    <img src="images/gallery/fulls/05.jpg" alt="Gameplay visual from gallery image 05.">
+                </figure>
+                <figure class="gallery-item wide reveal delay-1">
+                    <img src="images/gallery/fulls/08.jpg" alt="Gameplay visual from gallery image 08.">
+                </figure>
+                <figure class="gallery-item wide reveal">
+                    <img src="images/gallery/fulls/09.jpg" alt="Gameplay visual from gallery image 09.">
+                </figure>
+                <figure class="gallery-item wide reveal delay-1">
+                    <img src="images/gallery/fulls/11.jpg" alt="Gameplay visual from gallery image 11.">
+                </figure>
+            </div>
+        </section>
+
+        <section class="section alt" id="stack">
+            <div class="section-head reveal">
+                <h2>Tech And Team Context</h2>
+                <p>Basic implementation stack and team member information for the course project presentation.</p>
+            </div>
+            <div class="stack-layout">
+                <article class="stack-box reveal">
+                    <h3>Basic Tech Stack</h3>
+                    <p>Core technologies used to build and ship the GameTwoShapes mobile app.</p>
+                    <div class="chips">
+                        <span class="chip">React Native</span>
+                        <span class="chip">Java</span>
+                        <span class="chip">Kotlin</span>
+                        <span class="chip">Gradle</span>
+                        <span class="chip">Android Studio</span>
+                        <span class="chip">Firebase</span>
+                        <span class="chip">REST API</span>
+                        <span class="chip">GitHub</span>
+                    </div>
+                </article>
+                <article class="stack-box reveal delay-1">
+                    <h3>Team Members</h3>
+                    <ul class="team-list">
+                        <li><strong>Ng&ocirc; Minh Tr&iacute;</strong> - 2313598</li>
+                        <li><strong>Tr&#7847;n Qu&#7889;c C&#432;&#7901;ng</strong> - 2310405</li>
+                        <li><strong>V&otilde; Tr&#432;&#7901;ng Chinh</strong> - 2320002</li>
+                        <li><strong>Nguy&#7877;n Ng&#7885;c Ng&#7919;</strong> - 2312401</li>
+                        <li><strong>B&ugrave;i Tr&#7885;ng Hi&#7875;n</strong> - 2310993</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section cta" id="next">
+            <div class="cta-panel reveal">
+                <h2>Try GameTwoShapes</h2>
+                <p>
+                    Explore gameplay details, project assets, and repository information.
+                    This showcase is prepared for mobile app project presentation and review.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="index.html">Open Main Page</a>
+                    <a class="btn btn-secondary" href="https://github.com/L02-CockRoaches/main-app">Open Repository</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; GameTwoShapess Project. Developed by Team L02 - Cock Roaches.
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.16 }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        const counters = document.querySelectorAll("[data-count]");
+        const counterObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const target = Number(entry.target.getAttribute("data-count")) || 0;
+                    const start = performance.now();
+                    const duration = 900;
+
+                    const tick = (now) => {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const value = Math.round(target * progress);
+                        entry.target.textContent = String(value);
+                        if (progress < 1) {
+                            requestAnimationFrame(tick);
+                        }
+                    };
+
+                    requestAnimationFrame(tick);
+                    observer.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.55 }
+        );
+
+        counters.forEach((counter) => {
+            counter.textContent = "0";
+            counterObserver.observe(counter);
+        });
+    </script>
+</body>
+
 </html>
