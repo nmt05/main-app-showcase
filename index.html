@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GameTwoShapesS | Mobile App Showcase</title>
-    <meta name="description" content="A focused showcase page for the GameTwoShapes mobile game project.">
+    <title>GameTwoShapes | Mobile App Showcase</title>
+    <meta name="description"
+        content="GameTwoShapes is a dual-hand coordination mobile game that trains divided attention and brain hemispheres through simultaneous shape drawing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -189,6 +190,7 @@
             letter-spacing: 0.02em;
             border: 1px solid transparent;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            font-size: 0.95rem;
         }
 
         .btn-primary {
@@ -203,10 +205,20 @@
             border-color: var(--line);
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-2);
+            border-color: var(--accent-2);
+        }
+
         .btn:hover,
         .btn:focus-visible {
             transform: translateY(-2px);
             outline: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 14px 28px rgba(234, 90, 31, 0.35);
         }
 
         .hero-stats {
@@ -339,6 +351,69 @@
             line-height: 0.96;
         }
 
+        /* ---- Problem & Audience ---- */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .problem-card {
+            padding: 1.3rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: var(--paper);
+            box-shadow: var(--shadow);
+        }
+
+        .problem-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .problem-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 0.94rem;
+        }
+
+        .problem-card ul {
+            margin: 0.5rem 0 0;
+            padding-left: 1.2rem;
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.7;
+        }
+
+        .problem-icon {
+            display: inline-flex;
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 12px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .icon-problem {
+            background: rgba(234, 90, 31, 0.12);
+        }
+
+        .icon-audience {
+            background: rgba(15, 139, 160, 0.12);
+        }
+
+        .icon-value {
+            background: rgba(234, 90, 31, 0.12);
+        }
+
+        .icon-unique {
+            background: rgba(15, 139, 160, 0.12);
+        }
+
+        /* ---- Gameplay Loop ---- */
         .loop-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -377,6 +452,7 @@
             font-size: 0.94rem;
         }
 
+        /* ---- Features ---- */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -412,9 +488,10 @@
             line-height: 1.62;
         }
 
+        /* ---- Gallery ---- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 0.7rem;
         }
 
@@ -443,6 +520,7 @@
             grid-column: span 2;
         }
 
+        /* ---- Stack & Team ---- */
         .stack-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -505,6 +583,94 @@
             background: linear-gradient(120deg, var(--accent-2), #2b6d7a);
         }
 
+        /* ---- Design Links ---- */
+        .design-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .design-link-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(217, 203, 183, 0.75);
+            background: var(--paper);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: var(--ink);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .design-link-card:hover,
+        .design-link-card:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 48px rgba(27, 20, 12, 0.16);
+            outline: none;
+        }
+
+        .design-link-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .design-link-icon svg {
+            width: 1.6rem;
+            height: 1.6rem;
+        }
+
+        .behance-icon {
+            background: rgba(5, 62, 255, 0.1);
+        }
+
+        .behance-icon svg {
+            fill: #053eff;
+        }
+
+        .figma-icon {
+            background: rgba(162, 89, 255, 0.1);
+        }
+
+        .figma-icon svg {
+            fill: #a259ff;
+        }
+
+        .design-link-text {
+            flex: 1;
+        }
+
+        .design-link-text strong {
+            display: block;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .design-link-text span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .design-link-arrow {
+            color: var(--muted);
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .design-link-card:hover .design-link-arrow {
+            transform: translateX(3px);
+        }
+
+        /* ---- CTA ---- */
         .cta {
             text-align: center;
         }
@@ -533,6 +699,7 @@
             margin-top: 1.25rem;
         }
 
+        /* ---- Footer ---- */
         .footer {
             width: min(1120px, 100% - 2rem);
             margin: 0 auto;
@@ -542,6 +709,7 @@
             text-align: center;
         }
 
+        /* ---- Animations ---- */
         .reveal {
             opacity: 0;
             transform: translateY(22px);
@@ -585,6 +753,7 @@
             }
         }
 
+        /* ---- Responsive ---- */
         @media (max-width: 980px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -610,7 +779,9 @@
 
             .loop-grid,
             .feature-grid,
-            .stack-layout {
+            .stack-layout,
+            .problem-grid,
+            .design-links {
                 grid-template-columns: 1fr;
             }
 
@@ -660,26 +831,33 @@
     <header class="topbar">
         <a class="brand" href="#top">GameTwoShapes</a>
         <nav class="nav-links">
+            <a href="#problem">Problem</a>
             <a href="#gameplay">Gameplay</a>
             <a href="#features">Features</a>
             <a href="#gallery">Gallery</a>
+            <a href="#design">Design</a>
             <a href="#stack">Stack</a>
         </nav>
     </header>
 
     <main>
+        <!-- ====== HERO ====== -->
         <section class="hero" id="top">
             <div class="reveal">
                 <span class="eyebrow">Mobile App Showcase</span>
-                <h1>Train both hands. Keep both shapes alive.</h1>
+                <h1>Train both hands. Sharpen both brain hemispheres.</h1>
                 <p>
-                    GameTwoShapes is a divided-attention challenge where players draw and react on two lanes at the same
-                    time.
-                    The goal is simple: understand the loop fast, see real visuals, and jump into the project quickly.
+                    GameTwoShapes is a dual-hand coordination game that challenges players to draw two different shapes
+                    simultaneously on a split screen. It trains divided attention, reaction speed, and bimanual
+                    dexterity in short, addictive sessions.
                 </p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="#gameplay">View Gameplay</a>
-                    <a class="btn btn-secondary" href="https://github.com/L02-CockRoaches/main-app">Main Repository</a>
+                    <a class="btn btn-secondary"
+                        href="https://github.com/L02-CockRoaches/main-app">Source Code</a>
+                    <a class="btn btn-outline"
+                        href="https://www.behance.net/gallery/247596887/Game-Two-Shape" target="_blank"
+                        rel="noopener">Behance</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -687,12 +865,12 @@
                         <span>simultaneous input lanes</span>
                     </div>
                     <div class="stat">
-                        <strong data-count="3">3</strong>
-                        <span>core loop actions</span>
+                        <strong data-count="4">4</strong>
+                        <span>recognizable shapes</span>
                     </div>
                     <div class="stat">
-                        <strong data-count="60">60</strong>
-                        <span>seconds to explain gameplay</span>
+                        <strong data-count="5">5</strong>
+                        <span>team members</span>
                     </div>
                 </div>
             </div>
@@ -712,6 +890,80 @@
             </div>
         </section>
 
+        <!-- ====== PROBLEM & AUDIENCE ====== -->
+        <section class="section alt" id="problem">
+            <div class="section-head reveal">
+                <h2>Problem And Audience</h2>
+                <p>Understanding the gap we identified and the people we built this for.</p>
+            </div>
+            <div class="problem-grid">
+                <article class="problem-card reveal">
+                    <div class="problem-icon icon-problem" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <h3>The Problem</h3>
+                    <p>Most brain-training apps focus on memory, math, or language puzzles. Very few train
+                        <strong>divided attention through simultaneous bimanual input</strong>.
+                        Existing alternatives like Lumosity or Brain It On require only one hand at a time,
+                        leaving dual-hand coordination skills largely untrained.
+                    </p>
+                </article>
+                <article class="problem-card reveal delay-1">
+                    <div class="problem-icon icon-audience" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h3>Target Users</h3>
+                    <ul>
+                        <li>Young students (high school and university) looking for brain exercises</li>
+                        <li>Brain training enthusiasts who want a focused dual-hand challenge</li>
+                        <li>Casual mobile gamers during commute or short breaks</li>
+                        <li>Anyone interested in improving hand-eye coordination and reaction speed</li>
+                    </ul>
+                </article>
+                <article class="problem-card reveal">
+                    <div class="problem-icon icon-value" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                    </div>
+                    <h3>Value Proposition</h3>
+                    <p>GameTwoShapes delivers a <strong>simple yet effective brain exercise</strong> that trains
+                        hand coordination and focused attention in under a minute per session.
+                        Draw two shapes at once, beat your high score, and build bimanual dexterity
+                        through a gameplay loop designed for fast learning and progressive challenge.
+                    </p>
+                </article>
+                <article class="problem-card reveal delay-1">
+                    <div class="problem-icon icon-unique" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3>What Makes It Unique</h3>
+                    <p>Unlike any competitor in the market, GameTwoShapes requires
+                        <strong>drawing two different shapes simultaneously with both hands</strong>.
+                        This mechanic creates a rare bimanual coordination challenge
+                        that no mainstream brain-training app currently offers.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ====== GAMEPLAY LOOP ====== -->
         <section class="section" id="gameplay">
             <div class="section-head reveal">
                 <h2>How The Loop Works</h2>
@@ -721,98 +973,146 @@
                 <article class="loop-card reveal">
                     <span class="step-id">01</span>
                     <h3>Read Targets</h3>
-                    <p>Two shape targets appear on separate sides. You have limited time to process both at once.</p>
+                    <p>Two shape targets appear on separate sides of the screen. You have limited time to process both
+                        at once.</p>
                 </article>
                 <article class="loop-card reveal delay-1">
                     <span class="step-id">02</span>
                     <h3>Draw Both</h3>
-                    <p>Use multi-touch to draw the correct shape on each side. Missing either side breaks the streak.
-                    </p>
+                    <p>Use multi-touch to draw the correct shape on each side. The system recognizes circles, squares,
+                        triangles, and diagonal lines.</p>
                 </article>
                 <article class="loop-card reveal delay-2">
                     <span class="step-id">03</span>
                     <h3>Survive Pressure</h3>
-                    <p>Each correct turn boosts score and shortens reaction windows, forcing focus and control.</p>
+                    <p>Each correct turn boosts your score and shortens the time window, forcing sharper focus and
+                        faster hands.</p>
                 </article>
             </div>
         </section>
 
+        <!-- ====== FEATURES ====== -->
         <section class="section alt" id="features">
             <div class="section-head reveal">
-                <h2>Core Value Highlights</h2>
+                <h2>Key MVP Features</h2>
                 <p>Each block below maps directly to the mobile game experience and what makes the project unique.</p>
             </div>
             <div class="feature-grid">
                 <article class="feature reveal">
-                    <img src="images/start.jpg" alt="Beginning of a gameplay round with target shapes.">
+                    <img src="images/start.jpg" alt="Beginning of a gameplay round with target shapes displayed.">
                     <div>
                         <h3>Dual-Hand Control</h3>
-                        <p>The mechanic trains coordination by forcing independent actions from left and right hands.
-                        </p>
+                        <p>Split-screen interface with independent left and right canvases. Each hand draws a different
+                            shape using multi-touch input.</p>
                     </div>
                 </article>
                 <article class="feature reveal delay-1">
-                    <img src="images/inplay.jpg" alt="In-game state with increasing pace.">
+                    <img src="images/inplay.jpg" alt="In-game state with shapes being drawn at increasing speed.">
                     <div>
                         <h3>Progressive Difficulty</h3>
-                        <p>Round speed ramps up quickly, turning simple controls into a serious concentration test.</p>
+                        <p>Round speed ramps up after every correct answer, turning simple controls into a serious
+                            concentration test.</p>
                     </div>
                 </article>
                 <article class="feature reveal">
-                    <img src="images/gameover.jpg" alt="Game over state after missing the targets.">
+                    <img src="images/gameover.jpg" alt="Game over screen showing score and high score.">
                     <div>
-                        <h3>Replay Motivation</h3>
-                        <p>Instant restart flow and score chasing encourage repeat attempts and measurable improvement.
-                        </p>
+                        <h3>Score And High Score</h3>
+                        <p>Local high-score persistence encourages replay. Instant restart flow keeps players chasing
+                            their personal best.</p>
                     </div>
                 </article>
                 <article class="feature reveal delay-1">
                     <img src="images/menu.jpg" alt="Main menu with clean and focused interface.">
                     <div>
-                        <h3>Minimal Interface</h3>
-                        <p>Low-distraction visual design keeps attention on reaction speed, gesture quality, and timing.
-                        </p>
+                        <h3>Shape Recognition</h3>
+                        <p>Built-in gesture recognition validates drawn shapes against templates for circles, squares,
+                            triangles, and diagonal lines.</p>
                     </div>
                 </article>
             </div>
         </section>
 
+        <!-- ====== GALLERY ====== -->
         <section class="section" id="gallery">
             <div class="section-head reveal">
                 <h2>Visual Proof</h2>
-                <p>Real project images, arranged as a clean gallery section suitable for class demo or portfolio review.
-                </p>
+                <p>Real screenshots from the app, showing gameplay states and interface design.</p>
             </div>
             <div class="gallery-grid">
+                <!-- App screens -->
                 <figure class="gallery-item wide reveal">
-                    <img src="images/gallery/fulls/01.jpg" alt="Gameplay visual from gallery image 01.">
+                    <img src="images/menu.jpg" alt="Main menu screen with play button and high score display.">
                 </figure>
                 <figure class="gallery-item wide reveal delay-1">
-                    <img src="images/gallery/fulls/03.jpg" alt="Gameplay visual from gallery image 03.">
+                    <img src="images/start.jpg" alt="Gameplay start screen with shape targets appearing.">
                 </figure>
                 <figure class="gallery-item wide reveal">
-                    <img src="images/gallery/fulls/05.jpg" alt="Gameplay visual from gallery image 05.">
+                    <img src="images/inplay.jpg" alt="Active gameplay with dual shapes being drawn simultaneously.">
                 </figure>
                 <figure class="gallery-item wide reveal delay-1">
-                    <img src="images/gallery/fulls/08.jpg" alt="Gameplay visual from gallery image 08.">
+                    <img src="images/gameover.jpg" alt="Game over screen showing final score and high score.">
+                </figure>
+                <!-- Additional screenshots -->
+                <figure class="gallery-item wide reveal">
+                    <img src="images/1.jpg" alt="Game screenshot 1.">
+                </figure>
+                <figure class="gallery-item wide reveal delay-1">
+                    <img src="images/2.jpg" alt="Game screenshot 2.">
                 </figure>
                 <figure class="gallery-item wide reveal">
-                    <img src="images/gallery/fulls/09.jpg" alt="Gameplay visual from gallery image 09.">
-                </figure>
-                <figure class="gallery-item wide reveal delay-1">
-                    <img src="images/gallery/fulls/11.jpg" alt="Gameplay visual from gallery image 11.">
+                    <img src="images/3.jpg" alt="Game screenshot 3.">
                 </figure>
             </div>
         </section>
 
-        <section class="section alt" id="stack">
+        <!-- ====== DESIGN ASSETS ====== -->
+        <section class="section alt" id="design">
+            <div class="section-head reveal">
+                <h2>Design Assets</h2>
+                <p>Explore the full design process, wireframes, and visual system on Behance and Figma.</p>
+            </div>
+            <div class="design-links">
+                <a class="design-link-card reveal"
+                    href="https://www.behance.net/gallery/247596887/Game-Two-Shape" target="_blank" rel="noopener">
+                    <div class="design-link-icon behance-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 6.053-2.207 7.061zM2.93 11.025h3.587c3.195 0 3.304-3.436 0-3.436H2.93v3.436zm0 6.394h3.768c3.882-.019 3.69-4.084 0-4.084H2.93v4.084z" />
+                        </svg>
+                    </div>
+                    <div class="design-link-text">
+                        <strong>Behance Case Study</strong>
+                        <span>Full design process, research, and visual showcase</span>
+                    </div>
+                    <span class="design-link-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <a class="design-link-card reveal delay-1"
+                    href="https://www.figma.com/design/IZGEZJaqqjwCJ1VxnaVr9i/Untitled?node-id=0-1&t=1uhN37FClp0PQp0m-1" target="_blank" rel="noopener">
+                    <div class="design-link-icon figma-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 8.962h-4.588c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.962H8.148zm4.587 15.038h-4.588c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V16.49H8.148zm14.462-2.529c0 2.476-2.014 4.49-4.49 4.49s-4.49-2.014-4.49-4.49 2.014-4.49 4.49-4.49 4.49 2.014 4.49 4.49zm-1.471 0c0-1.665-1.355-3.019-3.019-3.019s-3.019 1.355-3.019 3.019 1.355 3.019 3.019 3.019 3.019-1.355 3.019-3.019z" />
+                        </svg>
+                    </div>
+                    <div class="design-link-text">
+                        <strong>Figma Prototype</strong>
+                        <span>Interactive wireframes, components, and design system</span>
+                    </div>
+                    <span class="design-link-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ====== TECH & TEAM ====== -->
+        <section class="section" id="stack">
             <div class="section-head reveal">
                 <h2>Tech And Team Context</h2>
-                <p>Basic implementation stack and team member information for the course project presentation.</p>
+                <p>Implementation stack and team member information for the course project.</p>
             </div>
             <div class="stack-layout">
                 <article class="stack-box reveal">
-                    <h3>Basic Tech Stack</h3>
+                    <h3>Tech Stack</h3>
                     <p>Core technologies used to build and ship the GameTwoShapes mobile app.</p>
                     <div class="chips">
                         <span class="chip">React Native</span>
@@ -828,33 +1128,39 @@
                 <article class="stack-box reveal delay-1">
                     <h3>Team Members</h3>
                     <ul class="team-list">
-                        <li><strong>Ng&ocirc; Minh Tr&iacute;</strong> - 2313598</li>
-                        <li><strong>Tr&#7847;n Qu&#7889;c C&#432;&#7901;ng</strong> - 2310405</li>
-                        <li><strong>V&otilde; Tr&#432;&#7901;ng Chinh</strong> - 2320002</li>
-                        <li><strong>Nguy&#7877;n Ng&#7885;c Ng&#7919;</strong> - 2312401</li>
-                        <li><strong>B&ugrave;i Tr&#7885;ng Hi&#7875;n</strong> - 2310993</li>
+                        <li><strong>Ng&ocirc; Minh Tr&iacute;</strong> &mdash; 2313598</li>
+                        <li><strong>Tr&#7847;n Qu&#7889;c C&#432;&#7901;ng</strong> &mdash; 2310405</li>
+                        <li><strong>V&otilde; Tr&#432;&#7901;ng Chinh</strong> &mdash; 2320002</li>
+                        <li><strong>Nguy&#7877;n Ng&#7885;c Ng&#7919;</strong> &mdash; 2312401</li>
+                        <li><strong>B&ugrave;i Tr&#7885;ng Hi&#7875;n</strong> &mdash; 2310993</li>
                     </ul>
                 </article>
             </div>
         </section>
 
+        <!-- ====== FINAL CTA ====== -->
         <section class="section cta" id="next">
             <div class="cta-panel reveal">
-                <h2>Try GameTwoShapes</h2>
+                <h2>Explore GameTwoShapes</h2>
                 <p>
-                    Explore gameplay details, project assets, and repository information.
-                    This showcase is prepared for mobile app project presentation and review.
+                    Check out the source code, design assets, and project documentation.
+                    Built for the Mobile Development course by Team L02.
                 </p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="index.html">Open Main Page</a>
-                    <a class="btn btn-secondary" href="https://github.com/L02-CockRoaches/main-app">Open Repository</a>
+                    <a class="btn btn-primary" href="https://github.com/L02-CockRoaches/main-app">View Repository</a>
+                    <a class="btn btn-secondary"
+                        href="https://www.behance.net/gallery/247596887/Game-Two-Shape" target="_blank"
+                        rel="noopener">Behance</a>
+                    <a class="btn btn-outline"
+                        href="https://www.figma.com/design/IZGEZJaqqjwCJ1VxnaVr9i/Untitled?node-id=0-1&t=1uhN37FClp0PQp0m-1" target="_blank"
+                        rel="noopener">Figma</a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        &copy; GameTwoShapess Project. Developed by Team L02 - Cock Roaches.
+        &copy; GameTwoShapes Project. Developed by Team L02 &mdash; Cock Roaches. Mobile Development Course.
     </footer>
 
     <script>
