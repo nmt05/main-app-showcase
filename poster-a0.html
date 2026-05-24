@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poster A0 - GameTwoShapes</title>
+  <style>
+    @page { size: A0 portrait; margin: 0; }
+    :root {
+      --bg: #f7f3eb;
+      --panel: #ffffff;
+      --ink: #111111;
+      --muted: #4e4e4e;
+      --line: #e2d7c5;
+      --accent: #ea5a1f;
+      --accent2: #0f8ba0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    .poster {
+      width: 841mm;
+      min-height: 1189mm;
+      margin: 0 auto;
+      padding: 20mm;
+      display: grid;
+      grid-template-rows: auto auto auto auto 1fr auto;
+      gap: 10mm;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(15,139,160,.12), transparent 22%),
+        radial-gradient(circle at 96% 2%, rgba(234,90,31,.16), transparent 24%),
+        var(--bg);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 10mm;
+      align-items: center;
+      border: 2px solid var(--line);
+      border-radius: 8mm;
+      padding: 8mm;
+      background: var(--panel);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12pt;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 4mm;
+    }
+    h1 {
+      margin: 0;
+      font-size: 70pt;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+    .tagline {
+      margin-top: 5mm;
+      font-size: 20pt;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .hero-phone {
+      border: 2px solid var(--ink);
+      border-radius: 10mm;
+      overflow: hidden;
+      background: #111;
+      padding: 4mm;
+    }
+    .hero-phone img {
+      width: 100%;
+      height: 270mm;
+      object-fit: cover;
+      border-radius: 6mm;
+      display: block;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6mm;
+    }
+    .stat {
+      border: 2px solid var(--line);
+      border-radius: 6mm;
+      padding: 5mm;
+      background: var(--panel);
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: 42pt;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat span {
+      font-size: 14pt;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+    }
+    .card {
+      border: 2px solid var(--line);
+      border-radius: 6mm;
+      background: var(--panel);
+      padding: 6mm;
+    }
+    h2 {
+      margin: 0 0 4mm;
+      font-size: 30pt;
+      text-transform: uppercase;
+    }
+    .card p, .card li {
+      font-size: 15pt;
+      line-height: 1.55;
+      color: #2f2f2f;
+      margin: 0;
+    }
+    ul { margin: 0; padding-left: 6mm; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      margin-top: 3mm;
+    }
+    .step {
+      border: 1.5px dashed var(--accent2);
+      border-radius: 4mm;
+      padding: 4mm;
+      background: #fbfffe;
+    }
+    .step b { font-size: 16pt; display: block; margin-bottom: 2mm; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4mm;
+    }
+    .gallery figure {
+      margin: 0;
+      border: 1.5px solid var(--line);
+      border-radius: 4mm;
+      overflow: hidden;
+      background: #fff;
+    }
+    .gallery img {
+      width: 100%;
+      height: 120mm;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery figcaption {
+      padding: 2.5mm;
+      font-size: 11pt;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      align-items: stretch;
+    }
+    .qr-box {
+      border: 2px solid var(--line);
+      border-radius: 6mm;
+      background: var(--panel);
+      padding: 6mm;
+      display: grid;
+      grid-template-columns: 70mm 1fr;
+      gap: 6mm;
+      align-items: center;
+    }
+    .qr-placeholder {
+      width: 70mm;
+      height: 70mm;
+      border: 2px dashed #9f9f9f;
+      border-radius: 3mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 12pt;
+      color: #6b6b6b;
+      padding: 2mm;
+    }
+    .link-list p {
+      font-size: 13pt;
+      margin: 0 0 2mm;
+      line-height: 1.45;
+      word-break: break-all;
+    }
+
+    .footer {
+      border: 2px solid var(--line);
+      border-radius: 6mm;
+      background: var(--panel);
+      padding: 5mm 6mm;
+      font-size: 13pt;
+      color: #333;
+      line-height: 1.45;
+    }
+
+    @media screen {
+      body { padding: 12px; }
+      .poster {
+        width: min(100%, 1200px);
+        min-height: auto;
+        padding: 18px;
+      }
+      .hero-phone img { height: 380px; }
+      .gallery img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <section class="header">
+      <div>
+        <span class="eyebrow">Mobile App Showcase • Team L02 CockRoaches</span>
+        <h1>GameTwoShapes</h1>
+        <p class="tagline">Rèn luyện phối hợp hai tay và chia đôi sự chú ý bằng cơ chế vẽ 2 hình cùng lúc. Dễ bắt đầu, khó làm chủ.</p>
+      </div>
+      <div class="hero-phone">
+        <img src="images/1779596571099_37543132538739495_9174818736184832753_536383ff3b2d85152abf6af0aafc85fe.jpg" alt="Màn hình game" />
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat"><strong>2</strong><span>Làn thao tác đồng thời</span></article>
+      <article class="stat"><strong>4</strong><span>Hình cơ bản nhận diện</span></article>
+      <article class="stat"><strong>5+</strong><span>Người dùng ngoài nhóm test</span></article>
+      <article class="stat"><strong>MVP</strong><span>Build Android có thể trải nghiệm</span></article>
+    </section>
+
+    <section class="grid-2">
+      <article class="card">
+        <h2>Vấn đề & Giá trị</h2>
+        <ul>
+          <li>Phần lớn app brain-training thiên về trí nhớ, ngôn ngữ, toán học.</li>
+          <li>Thiếu bài tập thực sự tập trung vào phối hợp hai tay đồng thời.</li>
+          <li>GameTwoShapes tạo bài tập ngắn, trực quan, có tính cạnh tranh qua điểm số.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Gameplay Loop</h2>
+        <div class="flow">
+          <div class="step"><b>01 • Quan sát</b><p>Hệ thống hiển thị 2 hình mục tiêu ở 2 phía màn hình.</p></div>
+          <div class="step"><b>02 • Vẽ đồng thời</b><p>Người dùng dùng hai tay vẽ 2 hình khác nhau cùng lúc.</p></div>
+          <div class="step"><b>03 • Chấm điểm</b><p>Đúng thì cộng điểm, tăng tốc độ; sai hoặc hết giờ thì game over.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid-2">
+      <article class="card">
+        <h2>Tính năng nổi bật</h2>
+        <ul>
+          <li>Split canvas hỗ trợ multi-touch độc lập trái/phải.</li>
+          <li>Nhận diện hình tròn, vuông, tam giác, đường chéo.</li>
+          <li>Độ khó tăng dần theo nhịp chơi thực tế.</li>
+          <li>Lưu high score cục bộ để thúc đẩy replay.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Metrics & Khảo sát</h2>
+        <ul>
+          <li>Khảo sát Google Forms bao quát usability, satisfaction và đề xuất cải tiến.</li>
+          <li>Thu phản hồi từ tối thiểu 5 người dùng ngoài nhóm.</li>
+          <li>Triển khai ít nhất 1 công cụ metrics: Sentry hoặc Firebase Analytics.</li>
+          <li>Theo dõi engagement, retention, vấn đề hiệu năng/lỗi và rút insight từ dữ liệu.</li>
+          <li>Đính kèm link poster + survey + dashboard metrics trong báo cáo cuối kỳ.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Bằng chứng tương tác người dùng (>=5, có consent)</h2>
+      <div class="gallery">
+        <figure>
+          <img src="images/1779596571768_37543132538739495_9174818736184832753_f078ceda730b3cf691ac97510c10c7f2.jpg" alt="User 1" />
+          <figcaption>User ngoài nhóm #1</figcaption>
+        </figure>
+        <figure>
+          <img src="images/1779596571918_37543132538739495_9174818736184832753_d60b6965e0340be311a5bc0efb49b96a.jpg" alt="User 2" />
+          <figcaption>User ngoài nhóm #2</figcaption>
+        </figure>
+        <figure>
+          <img src="images/1779596571276_37543132538739495_9174818736184832753_d23b8503df8245bce6bd8d9a8aed6025.jpg" alt="User 3" />
+          <figcaption>User ngoài nhóm #3</figcaption>
+        </figure>
+        <figure>
+          <img src="images/1779596571438_37543132538739495_9174818736184832753_c75891f00718060ce536543c9fb59e37.jpg" alt="User 4" />
+          <figcaption>User ngoài nhóm #4</figcaption>
+        </figure>
+        <figure>
+          <img src="images/1779596571604_37543132538739495_9174818736184832753_22ce21d30287b7235dc23ef0ae33d3c1.jpg" alt="User 5" />
+          <figcaption>User ngoài nhóm #5</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="links">
+      <article class="qr-box">
+        <div class="qr-placeholder">Dán QR tại đây<br/>trỏ đến landing page</div>
+        <div class="link-list">
+          <p><strong>Landing (Cloud Platform):</strong> [thêm URL hosting công khai]</p>
+          <p><strong>APK:</strong> application-debed49e-d100-4dbc-93a5-418c64a22307.apk</p>
+          <p><strong>Main Repo:</strong> https://github.com/L02-CockRoaches/main-app</p>
+        </div>
+      </article>
+      <article class="qr-box">
+        <div class="qr-placeholder">Dán QR tại đây<br/>trỏ đến survey</div>
+        <div class="link-list">
+          <p><strong>Survey responses:</strong> https://docs.google.com/forms/d/1C7svm-rgvydBrcUmB8PezQgvmWG8iir2kdrQRk4Qi3o/edit#responses</p>
+          <p><strong>Metrics Dashboard:</strong> [thêm link Sentry/Firebase]</p>
+          <p><strong>Poster PDF:</strong> [xuất PDF từ file này để nộp]</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="footer">
+      Team L02 CockRoaches • HCMUT Mobile Development. Khuyến nghị in khổ A0 (841×1189mm) hoặc xuất PDF từ trình duyệt với Print → Paper size A0 → Margins None. Trước khi nộp, thay QR/link thật cho Landing Cloud URL, Survey và Metrics Dashboard; đảm bảo ảnh người dùng có đồng ý thu thập dữ liệu và đã ẩn thông tin nhạy cảm.
+    </section>
+  </main>
+</body>
+</html>

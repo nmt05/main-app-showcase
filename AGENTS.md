@@ -9,6 +9,11 @@ The home experience should explain the game quickly and make visitors want to tr
 - Potential players
 - Potential collaborators
 
+## Communication Preference
+- The project owner is still improving English and may make grammar/spelling mistakes.
+- When mistakes appear in user messages, gently remind them and provide a short corrected version.
+- Keep corrections concise and friendly, then continue with the technical task.
+
 ## Content Priorities
 1. Gameplay clarity: what the player does and why it is challenging
 2. Proof: real screenshots, clips, or gameplay visuals
